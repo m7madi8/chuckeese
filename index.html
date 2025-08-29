@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Chuckeese</title>
+    <meta name="description" content="Modern fast-food restaurant specializing in burgers, tenders, and family meals. Explore our menu." />
+    <meta name="theme-color" content="#ff6600" />
+    <meta property="og:title" content="Chuckeese — Burgers, Tenders & Family Meals" />
+    <meta property="og:description" content="Modern, fresh, and mouthwatering. Explore our menu." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1550317138-10000687a72b?q=80&w=1200&auto=format&fit=crop" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Chuckeese — Burgers, Tenders & Family Meals" />
+    <meta name="twitter:description" content="Modern, fresh, and mouthwatering. Explore our menu." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1550317138-10000687a72b?q=80&w=1200&auto=format&fit=crop" />
+    <link rel="manifest" href="manifest.webmanifest" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Leaflet Maps -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <!-- Header / Navigation -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#" class="logo" aria-label="Chuckeese home"><img class="logo-img" src="assets/img/logo1.png" alt="Chuckeese logo" /><span class="logo-text">Chuckeese</span></a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <nav class="site-nav" aria-label="Primary Navigation">
+          <div class="nav-title">Chuckeese</div>
+          <ul>
+            <li><a href="#showcase"><i class="fa-solid fa-fire"></i><span>Popular</span></a></li>
+            <li><a href="#menu"><i class="fa-solid fa-utensils"></i><span>Menu</span></a></li>
+            <li><a href="#location"><i class="fa-solid fa-location-dot"></i><span>Locations</span></a></li>
+            <li><a href="#contact"><i class="fa-solid fa-phone"></i><span>Contact</span></a></li>
+          </ul>
+          <div class="nav-social">
+            <a class="social-button instagram" href="https://instagram.com/chuckeese" target="_blank" rel="noopener" aria-label="Instagram">
+              <span class="icon-circle"><i class="fa-brands fa-instagram"></i></span>
+            </a>
+          </div>
+          <button class="nav-close" aria-label="Close menu"><span aria-hidden="true">×</span></button>
+        </nav>
+        <div class="nav-backdrop" hidden></div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="hero" class="hero reveal" aria-label="Hero">
+        <div class="hero-bg" role="img" aria-label="Juicy burgers and meals"></div>
+        <div class="container hero-content">
+          <h1>Chuck it , Love it !</h1>
+          <p>Burgers, Tenders, and Family Meals — made to make you smile.</p>
+          <div class="hero-ctas">
+            <a class="btn btn--primary btn--lg" href="#menu">View Menu</a>
+            <a class="btn btn--ghost btn--lg" href="#showcase">See Popular</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Animated Food Showcase -->
+      <section id="showcase" class="showcase section reveal" aria-label="Popular Meals">
+        <div class="container section-header">
+          <h2>Customer Favorites</h2>
+          <p>Slide through our most-loved picks.</p>
+        </div>
+        <div class="container">
+          <div class="carousel" aria-roledescription="carousel">
+            <button class="carousel-control prev" aria-label="Previous">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="carousel-viewport">
+              <div class="carousel-track">
+                <div class="slide">
+                  <img class="skeleton" src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop 1200w" sizes="(max-width: 768px) 90vw, 80vw" alt="Deluxe Sandwich" loading="lazy" decoding="async" draggable="false" />
+                  <span class="slide-label">Deluxe Sandwich</span>
+                </div>
+                <div class="slide">
+                  <img class="skeleton" src="https://images.unsplash.com/photo-1551782450-17144c3a09f7?q=80&w=1200&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1551782450-17144c3a09f7?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1551782450-17144c3a09f7?q=80&w=1200&auto=format&fit=crop 1200w" sizes="(max-width: 768px) 90vw, 80vw" alt="Mega Meal" loading="lazy" decoding="async" draggable="false" />
+                  <span class="slide-label">Mega Meal</span>
+                </div>
+                <div class="slide">
+                  <img class="skeleton" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1200&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1200&auto=format&fit=crop 1200w" sizes="(max-width: 768px) 90vw, 80vw" alt="Family Basket" loading="lazy" decoding="async" draggable="false" />
+                  <span class="slide-label">Family Basket</span>
+                </div>
+                <div class="slide">
+                  <img class="skeleton" src="https://images.unsplash.com/photo-1606756790138-261c36a7a164?q=80&w=1200&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1606756790138-261c36a7a164?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1606756790138-261c36a7a164?q=80&w=1200&auto=format&fit=crop 1200w" sizes="(max-width: 768px) 90vw, 80vw" alt="Sunny Sandwich" loading="lazy" decoding="async" draggable="false" />
+                  <span class="slide-label">Sunny Sandwich</span>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control next" aria-label="Next">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menu Section (Interactive & Filterable) -->
+      <section id="menu" class="menu section is-visible" aria-label="Menu">
+        <div class="container section-header">
+          <h2>Menu</h2>
+          <p>Filter by category and explore our items.</p>
+          <div class="tabs" role="tablist" aria-label="Menu Categories">
+            <button class="tab is-active" role="tab" aria-selected="true" data-filter="all">All</button>
+            <button class="tab" role="tab" aria-selected="false" data-filter="sandwiches">Sandwiches</button>
+            <button class="tab" role="tab" aria-selected="false" data-filter="personal">Personal Meals</button>
+            <button class="tab" role="tab" aria-selected="false" data-filter="family">Family Baskets</button>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="cards-grid" id="menuGrid">
+            <!-- Sandwiches -->
+            <article class="card" data-category="sandwiches">
+              <img class="skeleton" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop 1200w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw" alt="Bisc Sandwich" loading="lazy" decoding="async" draggable="false" />
+              <div class="card-body">
+                <h3>Bisc Sandwich</h3>
+                <p>Soft bun, crispy chicken, signature sauce.</p>
+              </div>
+            </article>
+            <article class="card" data-category="sandwiches">
+              <img class="skeleton" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop 1200w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw" alt="Harmony Sandwich" loading="lazy" decoding="async" draggable="false" />
+              <div class="card-body">
+                <h3>Harmony Sandwich</h3>
+                <p>A perfect balance of cheese, sauce, and flavor.</p>
+              </div>
+            </article>
+            <article class="card" data-category="sandwiches">
+              <img class="skeleton" src="https://images.unsplash.com/photo-1551782450-17144c3a09f7?q=80&w=1200&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1551782450-17144c3a09f7?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1551782450-17144c3a09f7?q=80&w=1200&auto=format&fit=crop 1200w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw" alt="Sunny Sandwich" loading="lazy" decoding="async" draggable="false" />
+              <div class="card-body">
+                <h3>Sunny Sandwich</h3>
+                <p>Bright, fresh flavors in every bite.</p>
+              </div>
+            </article>
+            <article class="card" data-category="sandwiches">
+              <img class="skeleton" src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=1200&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=1200&auto=format&fit=crop 1200w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw" alt="Deluxe Sandwich" loading="lazy" decoding="async" draggable="false" />
+              <div class="card-body">
+                <h3>Deluxe Sandwich</h3>
+                <p>Rich layers with a premium touch.</p>
+              </div>
+            </article>
+
+            <!-- Personal Meals -->
+            <article class="card" data-category="personal">
+              <img class="skeleton" src="https://images.unsplash.com/photo-1550547660-7d1a6b26119d?q=80&w=1200&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1550547660-7d1a6b26119d?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1550547660-7d1a6b26119d?q=80&w=1200&auto=format&fit=crop 1200w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw" alt="Mega Meal" loading="lazy" decoding="async" draggable="false" />
+              <div class="card-body">
+                <h3>Mega Meal</h3>
+                <p>Hearty, satisfying, and full of flavor.</p>
+              </div>
+            </article>
+            <article class="card" data-category="personal">
+              <img class="skeleton" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1200&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1200&auto=format&fit=crop 1200w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw" alt="Friendly Meal" loading="lazy" decoding="async" draggable="false" />
+              <div class="card-body">
+                <h3>Friendly Meal</h3>
+                <p>A light, everyday favorite.</p>
+              </div>
+            </article>
+            <article class="card" data-category="personal">
+              <img class="skeleton" src="https://images.unsplash.com/photo-1606756790138-261c36a7a164?q=80&w=1200&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1606756790138-261c36a7a164?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1606756790138-261c36a7a164?q=80&w=1200&auto=format&fit=crop 1200w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw" alt="Crazy Meal" loading="lazy" decoding="async" draggable="false" />
+              <div class="card-body">
+                <h3>Crazy Meal</h3>
+                <p>Bold flavors for the adventurous.</p>
+              </div>
+            </article>
+
+            <!-- Family Baskets -->
+            <article class="card" data-category="family">
+              <img class="skeleton" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=1200&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=1200&auto=format&fit=crop 1200w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw" alt="Friends Basket" loading="lazy" decoding="async" draggable="false" />
+              <div class="card-body">
+                <h3>Friends Basket</h3>
+                <p>A shareable selection for the crew.</p>
+              </div>
+            </article>
+            <article class="card" data-category="family">
+              <img class="skeleton" src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop 1200w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw" alt="Party Basket" loading="lazy" decoding="async" draggable="false" />
+              <div class="card-body">
+                <h3>Party Basket</h3>
+                <p>Plenty for celebrations and gatherings.</p>
+              </div>
+            </article>
+            <article class="card" data-category="family">
+              <img class="skeleton" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1200&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1200&auto=format&fit=crop 1200w" sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 33vw" alt="Family Basket" loading="lazy" decoding="async" draggable="false" />
+              <div class="card-body">
+                <h3>Family Basket</h3>
+                <p>All your favorites in one basket.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Location & Contact Section -->
+      <section id="location" class="location section reveal" aria-label="Location and Contact">
+        <div class="container section-header">
+          <h2>Find Us</h2>
+          <p>Drop by or get in touch to book and order.</p>
+        </div>
+        <div class="container location-grid">
+          <div class="map-card">
+            <div id="map" aria-label="Map with Chuckeese branches"></div>
+          </div>
+          <div class="contact-card" id="contact">
+            <div class="contact-info">
+              <h3>Our Branches</h3>
+              <div class="branch-list" role="tablist" aria-label="Select branch">
+                <button class="branch-btn btn btn--ghost btn--sm is-active" role="tab" aria-selected="true" data-branch="0">
+                  Palestine 
+                </button>
+                <button class="branch-btn btn btn--ghost btn--sm" role="tab" aria-selected="false" data-branch="1">
+                  Miami
+                </button>
+              </div>
+              <div class="branch-details">
+                <p class="branch-address">Palestine, Ramallah, CCC Building</p>
+                <a href="#" class="contact-link branch-phone" style="display:none"><i class="fa-solid fa-phone"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div class="footer-col footer-brand">
+            <a href="#" class="logo"><img class="logo-img" src="assets/img/logo1.png" alt="Chuckeese logo" /><span class="logo-text">Chuckeese</span></a>
+            <p class="tagline">Chuck it , Love it !</p>
+          </div>
+
+          <nav class="footer-col" aria-label="Footer Quick Links">
+            <h4 class="footer-title">Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#showcase">Popular</a></li>
+              <li><a href="#menu">Menu</a></li>
+              <li><a href="#location">Locations</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer-col">
+            <h4 class="footer-title">Locations</h4>
+            <ul class="footer-links">
+              <li>Palestine - Ramallah - CCC Building</li>
+              <li>Miami, FL, USA</li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-title">Contact</h4>
+            <div class="footer-contact">
+              <a href="tel:+970591234567" class="contact-link"><i class="fa-solid fa-phone"></i> +970 59 123 4567</a>
+              <a href="tel:+13055551234" class="contact-link"><i class="fa-solid fa-phone"></i> +1 (305) 555-1234</a>
+            </div>
+            <div class="socials" aria-label="Social links">
+              <a href="https://instagram.com/chuckeese" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <small>© <span id="year"></span> Chuckeese. All rights reserved.</small>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Leaflet JS placed before app code to ensure availability -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+  </html>
+
+
