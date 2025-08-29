@@ -80,6 +80,36 @@ a { color: inherit; text-decoration: none; }
 .btn--ghost:hover { border-color: #d1d5db; transform: translateY(-1px); }
 .btn--sm { padding: 10px 14px; font-size: 14px; }
 .btn--lg { padding: 14px 22px; font-size: 16px; }
+/* Gradient button variant */
+.btn--gradient {
+    background: linear-gradient(135deg, #ff6600, #ff8a40);
+    color: #fff;
+    border: 0;
+    box-shadow: 0 8px 24px rgba(255,102,0,0.35);
+    font-weight: 700;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.25);
+}
+.btn--gradient:hover {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(255,102,0,0.45);
+}
+/* Ensure icons on gradient buttons are white */
+.btn--gradient i { color: #fff; }
+/* CTA button: bolder, higher-contrast gradient */
+.btn--cta {
+	background: linear-gradient(135deg, #ff5a00 0%, #ff2d55 100%);
+	color: #ffffff;
+	border: 0;
+	font-weight: 800;
+	letter-spacing: 0.3px;
+	box-shadow: 0 14px 36px rgba(255,90,0,0.4);
+}
+.btn--cta:hover {
+	transform: translateY(-1px) scale(1.02);
+	box-shadow: 0 18px 42px rgba(255,90,0,0.5);
+}
+.btn--cta i { color: #ffffff; }
+.btn--cta:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(255,45,85,0.35), 0 14px 36px rgba(255,90,0,0.4); }
 /* Button click feedback */
 .btn:active { transform: translateY(0) scale(0.98); }
 .btn.pulse { animation: clickPulse 450ms ease-out; }
@@ -144,9 +174,9 @@ a { color: inherit; text-decoration: none; }
 .tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; background: linear-gradient(180deg, #ffffff, #f7f7f8); padding: 6px; border-radius: 14px; border: 0; box-shadow: 0 6px 24px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6); }
 .tab { appearance: none; border: 0; background: #ffffff; padding: 12px 18px; border-radius: 12px; cursor: pointer; font-weight: 700; color: #111111; letter-spacing: 0.2px; border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 150ms ease, box-shadow 200ms ease, color 200ms ease, background 200ms ease; }
 .tab:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
-.tab.is-active { background: linear-gradient(135deg, var(--color-primary), #ff8a40); color: #ffffff; border-color: transparent; box-shadow: 0 8px 24px rgba(255,102,0,0.35); }
-/* Tab click feedback */
-.tab.pulse { animation: clickPulse 450ms ease-out; }
+.tab.is-active { background: linear-gradient(135deg, var(--color-primary), #ff8a40); color: #ffffff; border-color: transparent; box-shadow: 0 8px 24px rgba(255,102,0,0.20); }
+/* Tab click feedback (calm) */
+.tab.is-activating { transform: translateY(-1px); box-shadow: 0 10px 26px rgba(0,0,0,0.08); }
 
 .cards-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
 .card { position: relative; grid-column: span 4; border: 1px solid transparent; border-radius: 18px; box-shadow: var(--shadow-sm); overflow: hidden; transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease; background:
@@ -217,6 +247,16 @@ a { color: inherit; text-decoration: none; }
 /* Anchor target pulse */
 @keyframes anchorPulse { 0% { box-shadow: 0 0 0 0 rgba(255,102,0,0.0); } 50% { box-shadow: 0 0 0 8px rgba(255,102,0,0.12); } 100% { box-shadow: 0 0 0 0 rgba(255,102,0,0.0); } }
 .anchor-pulse { animation: anchorPulse 900ms ease-out; border-radius: 16px; }
+
+/* Anchor target slide-in animation */
+@keyframes sectionSlideIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.anchor-slide-in { animation: sectionSlideIn 520ms cubic-bezier(.2,.8,.2,1) both; }
+
+/* Ensure anchor sections account for sticky header when using scrollIntoView */
+#hero, #showcase, #menu, #location, #contact { scroll-margin-top: 72px; }
 
 /* Skeleton loader */
 .skeleton { background: linear-gradient(90deg, #f3f4f6, #e5e7eb, #f3f4f6); background-size: 200% 100%; animation: skeletonMove 1.2s ease-in-out infinite; }

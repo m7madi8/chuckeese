@@ -183,8 +183,9 @@
 			tab.addEventListener('click', () => {
 				tabs.forEach((t) => t.classList.remove('is-active'));
 				tab.classList.add('is-active');
-				tab.classList.add('pulse');
-				setTimeout(() => tab.classList.remove('pulse'), 460);
+				// subtle, calm click feedback
+				tab.classList.add('is-activating');
+				setTimeout(() => tab.classList.remove('is-activating'), 240);
 				const filter = tab.getAttribute('data-filter');
 				const cards = $$('.card', grid);
 				cards.forEach((card) => {
@@ -271,10 +272,9 @@
 		focusBranch(0);
 	})();
 
-	// Smooth scroll fallback for browsers that don't support CSS smooth scrolling
-	(function initSmoothScrollFallback() {
+	// Smooth scroll handler (native when available, fallback otherwise)
+	(function initSmoothScroll() {
 		const supportsCssSmooth = ('CSS' in window) && typeof CSS.supports === 'function' && CSS.supports('scroll-behavior', 'smooth');
-		if (supportsCssSmooth) return;
 
 		function easeInOutQuad(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
 		function smoothScrollTo(targetY, duration) {
@@ -299,10 +299,41 @@
 			if (!id || id === '#') return;
 			const target = document.querySelector(id);
 			if (!target) return;
-			e.preventDefault();
-			const headerOffset = 72; // match scroll-padding-top
-			const targetY = target.getBoundingClientRect().top + (window.scrollY || document.documentElement.scrollTop) - headerOffset;
-			smoothScrollTo(targetY, 500);
+			// prevent default only for on-page anchors
+			const isSamePage = link.pathname === location.pathname && link.hostname === location.hostname;
+			if (isSamePage) e.preventDefault();
+			const performScroll = () => {
+				// Prefer native API on modern browsers for reliability
+				try {
+					target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				} catch (_) {
+					const headerOffset = 72;
+					const targetY = target.getBoundingClientRect().top + (window.scrollY || document.documentElement.scrollTop) - headerOffset;
+					if (supportsCssSmooth) {
+						window.scrollTo({ top: targetY, behavior: 'smooth' });
+					} else {
+						smoothScrollTo(targetY, 520);
+					}
+				}
+				// add gentle slide-in effect on target
+				target.classList.remove('anchor-slide-in');
+				void target.offsetWidth; // reflow to restart animation
+				target.classList.add('anchor-slide-in');
+			};
+
+			// If mobile nav is open, close it first, then scroll after transition
+			if (isSamePage && siteNav && siteNav.classList.contains('open')) {
+				const onDone = () => { performScroll(); };
+				siteNav.addEventListener('transitionend', onDone, { once: true });
+				// Fallback in case transitionend doesn't fire
+				setTimeout(performScroll, 320);
+				siteNav.classList.remove('open');
+				navToggle && navToggle.setAttribute('aria-expanded', 'false');
+				navBackdrop && navBackdrop.setAttribute('hidden', '');
+				navBackdrop && navBackdrop.classList.remove('show');
+			} else if (isSamePage) {
+				performScroll();
+			}
 		}, { passive: false });
 	})();
 })();
